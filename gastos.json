@@ -1,0 +1,26 @@
+[
+  {
+    "nombre_del_gasto": "expensas",
+    "monto": "15000",
+    "fecha": "27 de noviembre",
+    "tipo_de_pago": "efectivo"
+  },
+  {
+    "nombre_del_gasto": "luz",
+    "monto": "5000",
+    "fecha": "20 de noviembre",
+    "tipo_de_pago": "efectivo"
+  },
+  {
+    "nombre_del_gasto": "gas",
+    "monto": "15000",
+    "fecha": "7 de noviembre",
+    "tipo_de_pago": "debito"
+  },
+  {
+    "nombre_del_gasto": "cine",
+    "monto": "20000",
+    "fecha": "27 de agosto",
+    "tipo_de_pago": "efectivo"
+  }
+]

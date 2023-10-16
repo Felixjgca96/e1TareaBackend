@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { promptNewUser } from "./userPrompts.js";
+import { promptNuevoGasto } from "./gastosPrompts.js";
 import { save, get } from "./filesMethods.js";
 const main = async () => {
   let run = true;
@@ -12,29 +12,29 @@ const main = async () => {
         choices: [
           {
             value: 1,
-            name: "Create new User",
+            name: "Ingresa Nuevo Gasto",
           },
           {
             value: 2,
-            name: "Get all users",
+            name: "Ver Todos Los Gastos",
           },
           {
             value: 3,
-            name: "Exit",
+            name: "Salir",
           },
         ],
       },
     ]);
     switch (action.chossen) {
       case 1:
-        await createNewUser();
+        await crearNuevoGasto();
         break;
       case 2:
-        await getAllUsers();
+        await obtenerTodosLosUsuarios();
       case 3:
-        run = false
+        run = false;
       default:
-        run = false
+        run = false;
         break;
     }
   }
@@ -42,23 +42,22 @@ const main = async () => {
 
 main();
 
-async function createNewUser() {
-  console.log("adding new user");
+async function crearNuevoGasto() {
+  console.log("Agregando nuevo gasto");
 
-  const newUserData = await promptNewUser();
+  const newGastoData = await promptNuevoGasto();
 
-  console.log("data del usuario", newUserData)
+  console.log("Datos del gasto", newGastoData);
 
-  const currentUsers = await get("users.json")
+  const usuariosActuales = await get("gastos.json");
 
-  currentUsers.push(newUserData)
+  usuariosActuales.push(newGastoData);
 
-  await save("users.json", currentUsers)
-
+  await save("gastos.json", usuariosActuales);
 }
 
-async function getAllUsers(){
-    const currentUsers = await get("users.json")
+async function obtenerTodosLosUsuarios() {
+  const usuariosActuales = await get("gastos.json");
 
-    console.log(currentUsers)
+  console.log(usuariosActuales);
 }
